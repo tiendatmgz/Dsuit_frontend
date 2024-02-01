@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "react-alice-carousel/lib/alice-carousel.css";
+:root {
+  --peach-fuzz: rgb(255, 190, 152);
+  --classic-blue: rgb(15, 76, 129);
+  --middle-yellow-red: #f0b37e;
+  --jungle-green: #1ba098;
+  --violet: rgb(99 102 241);
+}
+* {
+  /* font-family: 'Poppins', sans-serif; */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  /* padding: 2px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.233);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgb(122, 122, 122);
+}
+button:focus-visible {
+  outline: 2px solid green;
+}
+.text-outline {
+  /* Set the background color */
+  /* background: linear-gradient(to right, #ff8a00 0%, #dd4c4f 100%); */
+  /* Mask the color to the text, and remove the rest  */
+  -webkit-background-clip: text;
+  /* Make the text fill color value transparent so the masked background color comes through */
+  -webkit-text-fill-color: transparent;
+  /* -webkit-text-stroke: 2px white; */
+}
+.btn-white {
+  text-transform: capitalize;
+  position: relative;
+  font-weight: 500;
+  border: 2px solid white;
+}
+.btn-white span {
+  transition: all 0.3s ease-in-out;
+}
+.btn-white:hover span {
+  color: white;
+  z-index: 2;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.btn-white::before {
+  content: "";
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background-color: rgb(76 29 149);
+  transition: all 0.3s ease-in-out;
+}
+.btn-white:hover::before {
+  left: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.nav-item {
+  position: relative;
+}
+.nav-item::before {
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 0;
+  background-color: rgb(99 102 241);
+  bottom: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-item:hover::before {
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.nav-dropdown {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: top;
+  transition: all 0.3s ease-in-out;
+}
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  transform: scale(1);
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-dropdown > li:hover,
+.nav-sub-dropdown > li:hover {
+  background-color: rgba(15, 76, 129, 0.5);
+  /* opacity: ; */
+}
+.nav-sub-dropdown {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: left;
+  transition: all 0.3s ease-in-out;
+}
+.nav-dropdown > li:hover .nav-sub-dropdown {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: left;
+  transition: all 0.3s ease-in-out;
+}
+.quests-active {
+  transform: rotatex(90deg);
+  transform-origin: top;
+  transition-duration: 1s;
+}
+
+input:focus-visible {
+  outline: none !important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
