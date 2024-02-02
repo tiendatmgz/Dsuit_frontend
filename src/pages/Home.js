@@ -18,7 +18,7 @@ const Home = () => {
     const aboutUsRef = useRef(null)
     const commitRef = useRef(null)
     const customerRef = useRef(null)
-    
+
     // scroll to top
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -86,10 +86,11 @@ const Home = () => {
 
     useEffect(() => {
         setLoading(true)
-        axios.get('http://localhost:4321/product/newArrival')
+        axios.get('https://dark-duck-fatigues.cyclic.app/product/newArrival')
             .then(function (res) {
                 setLoading(false)
                 setNewArrival(res.data.data);
+                console.log(res.data)
             })
             .catch(function (error) {
                 setLoading(false)

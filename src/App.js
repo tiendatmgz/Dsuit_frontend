@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-// import Item from "./pages/item/Item";
 import Cart from "./pages/Cart";
 import { MyAccount } from "./pages/account/MyAccount";
 import Product from "./pages/Product";
