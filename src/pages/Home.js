@@ -90,7 +90,7 @@ const Home = () => {
             .then(function (res) {
                 setLoading(false)
                 setNewArrival(res.data.data);
-                console.log(res.data)
+                console.log('https://dark-duck-fatigues.cyclic.app/product/newArrival')
             })
             .catch(function (error) {
                 setLoading(false)
