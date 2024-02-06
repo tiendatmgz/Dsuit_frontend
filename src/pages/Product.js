@@ -9,7 +9,7 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   // const [serverUrl, setServerUrl] = useState('')
   const location = useLocation();
-  console.log('>>>location:>>>', config.BASE_URL)
+  // console.log('>>>location:>>>', config.BASE_URL)
   let serverUrl
   switch (location.pathname) {
     case '/all':
@@ -80,6 +80,8 @@ const Product = () => {
   }
   useEffect(() => {
     window.scrollTo(0, 0)
+  }, [serverUrl])
+  useEffect(() => {
     setLoading(true)
     if (serverUrl) {
       axios.get(serverUrl)
@@ -99,19 +101,36 @@ const Product = () => {
       {loading ?
         <Loading /> :
         (<div className='mt-16'>
-          <div className='grid grid-cols-5 gap-8 p-24 bg-gradient-to-r from-sky-500 to-indigo-500'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-8 lg:p-24'>
             {products.map(item => {
               return (
-                <Link key={item._id} to={`/product/${item._id}`} >
-                  <div title={item.name} className='w-full hover:scale-105 hover:shadow-xl hover:duration-200 duration-200  shadow-black'>
-                    <img src={item.img[0]} alt='product' className='w-full aspect-square object-cover' />
-                    <div className='p-4 bg-white'>
-                      <h4 className='text-xl font-bold uppercase mb-2 border-b border-gray-400 text-gray-600 text-nowrap overflow-hidden text-ellipsis'>{item.name}</h4>
-                      <h5 className='font-medium text-gray-500'>{item.type}</h5>
-                      <p className='font-medium text-gray-500'>${item.price}</p>
+                <div key={item._id} >
+                  <Link to={`/product/${item._id}`} className="group block overflow-hidden">
+                    <div className="relative w-full aspect-square">
+                      <img
+                        src={item.img[0]}
+                        alt={item.name}
+                        className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+                      />
+
+                      <img
+                        src={item.img[1]}
+                        alt={item.name}
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
+                      />
                     </div>
-                  </div>
-                </Link>
+
+                    <div className="relative bg-white pt-3 ">
+                      <h3 className="text-lg uppercase text-gray-700 group-hover:underline group-hover:underline-offset-4 overflow-hidden text-ellipsis text-nowrap">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-1.5 text-sm tracking-wide text-gray-900">{item.type}</p>
+                      <p className="mt-1.5 text-lg tracking-wide text-gray-900">${item.price}</p>
+                    </div>
+                  </Link>
+                </div>
+
               )
             })}
           </div>

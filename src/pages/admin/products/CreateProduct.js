@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../../../components/Loading'
-import { useNavigate } from 'react-router-dom';
+import config from '../../../config';
 const CreateProduct = () => {
   const [name, setName] = useState('')
   const [gender, setGender] = useState('')
@@ -81,7 +82,7 @@ const CreateProduct = () => {
     }
     setLoading(true)
     // debugger
-    axios.post('http://localhost:4321/product', data)
+    axios.post(`${config.BASE_URL}/product`, data)
       .then(() => {
         alert('them thanh cong')
         setLoading(false)

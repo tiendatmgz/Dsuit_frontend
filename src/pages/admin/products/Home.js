@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 
 import Loading from '../../../components/Loading';
+import config from '../../../config';
 // import Button from '../../../components/button/Button';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const baseURL = config.BASE_URL
   useEffect(() => {
     setLoading(true)
-    axios.get('http://localhost:4321/product')
+    axios.get(`${baseURL}/product`)
       .then(function (res) {
         setLoading(false)
         setProducts(res.data.data);

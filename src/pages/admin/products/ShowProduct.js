@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
-import '../admin.css'
+// import '../admin.css'
 import Loading from '../../../components/Loading'
+import config from '../../../config'
 // import Button from '../../../components/button/Button'
 const ShowProduct = () => {
   const [loading, setLoading] = useState(false)
@@ -14,7 +15,7 @@ const ShowProduct = () => {
 
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://localhost:4321/product/${id}`)
+    axios.get(`${config.BASE_URL}/product/${id}`)
       .then(res => {
         setLoading(false);
         setProduct(res.data);

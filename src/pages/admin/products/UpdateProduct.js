@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Loading from '../../../components/Loading'
 import { useNavigate, useParams } from 'react-router-dom';
+import config from '../../../config';
 const UpdateProduct = () => {
   const [name, setName] = useState('')
   const [gender, setGender] = useState('')
@@ -30,7 +31,7 @@ const UpdateProduct = () => {
   const listSize = ['s', 'm', 'l', 'xl', '2xl', '3xl']
   useEffect(() => {
     setLoading(true)
-    axios.get(`http://localhost:4321/product/${id}`)
+    axios.get(`${config.BASE_URL}/product/${id}`)
       .then((res) => {
         setName(res.data.name)
         setPrice(res.data.price)
@@ -101,7 +102,7 @@ const UpdateProduct = () => {
       name, gender, type, price, size, img, amount, describe
     }
     setLoading(true)
-    axios.put(`http://localhost:4321/product/${id}`, data)
+    axios.put(`${config.BASE_URL}/product/${id}`, data)
       .then(() => {
         alert('Lưu thành công!')
         setLoading(false)

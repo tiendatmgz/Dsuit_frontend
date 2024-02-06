@@ -8,11 +8,11 @@ const NotFound = () => {
         window.scrollTo(0, 0)
     }, [])
     return (
-        <div className='mt-16 p-24 flex flex-col justify-center text-white items-center gap-8 bg-gradient-to-r from-sky-500 to-indigo-500'>
+        <div className='mt-16 p-24 flex flex-col justify-center text-black items-center gap-8'>
             <h1 className='text-9xl font-extrabold border-b-2 '>404</h1>
             <p>This page could not be found.</p>
-            
-            <Btn to={'/'} title={'Home Page'} icon={<i className="group-hover/item:-translate-x-2 fa-solid fa-arrow-left"></i>}/>
+
+            <Btn to={'/'} title={'Home Page'} icon={<i className="group-hover/item:-translate-x-2 fa-solid fa-arrow-left"></i>} />
             {/* <h1 className='animate__animated animate__slideInLeft opacity-100'>An animated element</h1>  */}
 
         </div>

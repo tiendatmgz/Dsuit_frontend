@@ -8,6 +8,9 @@ module.exports = {
       'Poppins': 'Poppins,  sans-serif',
     },
     extend: {
+      spacing: {
+        '192': '48rem', 
+      },
       colors: {
         'peach-fuzz': 'rgb(255,190,152)',
         'classic-blue': 'rgb(15, 76, 129)',

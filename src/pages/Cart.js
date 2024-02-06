@@ -81,8 +81,8 @@ const Cart = () => {
                                 <span className='text-red-500 font-bold text-2xl'>{totalPrice} $</span>
                             </div>
                             <div className='flex flex-col gap-8'>
-                                <Btn to={'/all'} title={'CHECK OUT'} />
-                                <Btn to={'#'} title={'CONTINUE SHOPPING'} />
+                                <Btn to={'#'} title={'CHECK OUT'} />
+                                <Btn to={'/all'} title={'CONTINUE SHOPPING'} />
                             </div>
                         </div>
                     </div>
